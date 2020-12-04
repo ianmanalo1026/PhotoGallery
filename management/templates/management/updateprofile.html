@@ -1,0 +1,41 @@
+{% extends 'management/base.html' %}
+{% load bootstrap %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% block content %}
+    <div class="container pt-5 pb-3 mt-5 border">
+        <form method="POST">
+            
+            <h2>Join our Group!</h2>
+            {% csrf_token %}
+            <p>{{ u_form|bootstrap }}</p>
+            <p>{{ p_form|bootstrap }}</p>
+            <div class="col text-center p-0">
+                    <button type="submit" class="btn btn-success">Update</button>
+                    <button type="submit" class="btn btn-danger">Cancel</button>  
+            </div>
+        </form>
+        {%if messages%}
+        {%for message in messages%}
+            <div class="alert alert-{{ message.tags }} mt-2">
+            <h6>{{ message }}</h6>
+        {% endfor %}
+    {% endif %}
+    </div>
+    {% endblock %}
+
+</body>
+</html>
+
+
+

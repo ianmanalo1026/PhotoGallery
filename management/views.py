@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from management.forms import UserCreateForm
+from management.forms import UserCreateForm, ProfileEditForm, UserEditForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.views.generic import (CreateView,
                                   DetailView)
-from management.models import Profile, UserGallery
+from django.contrib.auth.models import User
 from django.contrib import messages
 
 
@@ -67,12 +67,26 @@ def home(request):
     return render(request, 'management/home.html')
 
 
-
-class MyProfileView(DetailView):
-    model = Profile
-    context_object_name = 'profile'
+@login_required
+def myprofile(request):
+    return render(request, 'management/myprofile.html')
     
-"""class ProfileCreateView(CreateView):
-    model = Profile
-    fields = ['user.first_name', 'user.last_name', 'user.email', 'introduction', 'phone_number', 'profile_photo']
-    """
+
+@login_required
+def updateprofile(request):
+    if request.method == "POST":
+        u_form = UserEditForm(request.POST, instance=request.user)
+        p_form = ProfileEditForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            message = messages.success(request, f'Succesfully updated your profile')
+            return redirect('management:myprofile')
+    else:
+        u_form = UserEditForm(instance=request.user)
+        p_form = ProfileEditForm(instance=request.user.profile)
+        context = {'u_form': u_form, 'p_form': p_form}
+        
+    return render(request, 'management/updateprofile.html', context)
+
+
