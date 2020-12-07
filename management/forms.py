@@ -41,3 +41,5 @@ class ProfileEditForm(forms.ModelForm):
             'phone_number',
             'profile_photo',
         ]
+        
+

@@ -1,5 +1,4 @@
 from django.contrib import admin
-from management.models import Profile, UserGallery
+from management.models import Profile
 
 admin.site.register(Profile)
-admin.site.register(UserGallery)

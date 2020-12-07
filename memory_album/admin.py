@@ -1,3 +1,4 @@
 from django.contrib import admin
+from memory_album.models import UserGallery
 
-# Register your models here.
+admin.site.register(UserGallery)

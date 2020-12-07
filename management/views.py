@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import (CreateView,
                                   DetailView)
 from django.contrib.auth.models import User
+from management.models import Profile
 from django.contrib import messages
 
 
