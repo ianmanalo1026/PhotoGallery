@@ -5,7 +5,6 @@ app_name = 'memory_album'
 
 urlpatterns = [
     path('', MemoryGalleryListView.as_view(), name='memory_album'),
-    path('<int:id>/', MemoryGalleryDetailView.as_view(), name='detail'),
     path('create/', MemoryGalleryCreateView.as_view(), name='create'),
-
+    path('<int:id>/', MemoryGalleryDetailView.as_view(), name='detail'),
 ]

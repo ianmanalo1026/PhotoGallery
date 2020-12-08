@@ -14,7 +14,7 @@
     {% block content %}
     <div class="container pt-2 pb-5 w-50 mt-5 border">
       {% for instance in object_list %}
-      <p>{{ instance.id }} - <a href='{{ instance.get_absolute_url }}'>{{ instance.title }}</a></p>
+      <p>{{ instance.id }} - <a href="{% url 'memory_album:detail' instance.id %}">{{ instance.title }}</a></p>
       {% endfor %}
 
     </div>

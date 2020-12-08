@@ -24,11 +24,13 @@ class MemoryGalleryDetailView(DetailView):
     
     
 class MemoryGalleryCreateView(LoginRequiredMixin, CreateView):
-    model = UserGallery
-    form_class = UserGalleryCreationForm
     template_name = 'memory_album/memory_album_create.html'
+    form_class = UserGalleryCreationForm
+    queryset = UserGallery.objects.all() # <blog>/<modelname>_list.html
+    success_url = '/'
     
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        form.instance.photographer = self.request.user
         form.save()
         return super(MemoryGalleryCreateView, self).form_valid(form)
+    

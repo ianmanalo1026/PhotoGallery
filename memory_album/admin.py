@@ -1,4 +1,7 @@
 from django.contrib import admin
 from memory_album.models import UserGallery
 
-admin.site.register(UserGallery)
+
+class UserGalleryAdmin(admin.ModelAdmin):
+    readonly_fields = ('posted_on',)
+admin.site.register(UserGallery, UserGalleryAdmin)
