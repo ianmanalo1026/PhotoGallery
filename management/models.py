@@ -3,14 +3,15 @@ from django.contrib.auth.models import User
 from PIL import Image
 from django.urls import reverse
 
-
+def get_upload_path(instance, filename):
+    return 'profile_photo/{0}/{1}'.format(instance.user.username, filename)
 class Profile(models.Model):
     user = models.OneToOneField(User, 
                                 on_delete=models.CASCADE
                                 )
     introduction = models.TextField(blank=True, null=True)
     phone_number = models.IntegerField(blank=True, null=True)
-    profile_photo = models.ImageField(upload_to='images', default='images/default.jpg')
+    profile_photo = models.ImageField(upload_to=get_upload_path)
     
     def __str__(self):
         return str(self.user.first_name)

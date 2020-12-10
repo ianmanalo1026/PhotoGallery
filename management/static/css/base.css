@@ -2,3 +2,45 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 1.3rem;
   }
+
+#main {
+  background: url('photo/download.jpg');
+  background-size: cover;
+  object-fit: cover;
+  height: 15vh;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.header-main {
+  margin-top: 120px;
+
+}
+
+.nav-item {
+  font-size: 1rem;
+  margin: 0 20px;
+}
+
+.header-info {
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
+.img.mock {
+  width: 200%;
+  height: 100px;
+}
+
+
+
+
+
+
+.profile-photo {
+  border-radius: 50%;
+  width: 200px;
+}

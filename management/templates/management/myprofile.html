@@ -6,17 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'css/base.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     <title>Document</title>
 </head>
 <body>
     {% block content %}
-    <div class="container mt-5 pt-5 border shadow">
+    <div class="container mt-5 border shadow">
         <div class="row">
-            <div class="col-sm">
-                <img src="{{ user.profile.profile_photo.url }}" class="rounded-circle account-img mb-5">
+            <div class="col-sm mt-5">
+                <img src="{{ user.profile.profile_photo.url }}" class="profile-photo">
             </div>
-            <div class="col-sm">
+            <div class="col-sm mt-5">
                 <h6>{{content.user.username}}</h6>
                 <h6>{{user.first_name}} {{user.last_name}}</h6>
                 <h6>{{user.email}}</h6>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <p class="container ml-3 mr-3">{{user.profile.introduction}}</p>
-        <form method="POST">
+        <form enctype="multipart/form-data" method="POST">
         {% csrf_token %}
         <a href="{% url 'management:updateprofile' %}" class="btn btn-primary btn-lg m-5" role="button" aria-pressed="true">Update</a>
         </form>

@@ -11,7 +11,7 @@ from memory_album.models import UserGallery
 
 
 class MemoryGalleryListView(ListView):
-    queryset = UserGallery.objects.all()
+    queryset = UserGallery.objects.all()[:10:2]
     template_name = 'memory_album/memory_album.html'
     
     
@@ -63,7 +63,7 @@ class MemoryGalleryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteVie
         return False
 
 
-class MemoryGalleryFilterListView(LoginRequiredMixin, UserPassesTestMixin,  ListView):
+class MemoryGalleryFilterListView(LoginRequiredMixin,  ListView):
     model = UserGallery
     template_name = 'memory_album/memory_album_filter.html'
     
@@ -71,9 +71,12 @@ class MemoryGalleryFilterListView(LoginRequiredMixin, UserPassesTestMixin,  List
         queryset = super(MemoryGalleryFilterListView, self).get_queryset()
         queryset = queryset.filter(photographer=self.request.user)
         return queryset
+
+class MemoryGalleryFilterOtherListView(LoginRequiredMixin, ListView):
+    model = UserGallery
+    template_name = 'memory_album/memory_album_filter_other.html'
     
-    def test_func(self):
-        post = self.get_object()
-        if self.request.user == post.photographer:
-            return True
-        return False
+    def get_queryset(self):
+        queryset = super(MemoryGalleryFilterListView, self).get_queryset()
+        queryset = queryset.filter(user=self.request.user)
+        return queryset
