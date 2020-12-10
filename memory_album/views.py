@@ -11,7 +11,7 @@ from memory_album.models import UserGallery
 
 
 class MemoryGalleryListView(ListView):
-    queryset = UserGallery.objects.all()[:10:2]
+    queryset = UserGallery.objects.all()
     template_name = 'memory_album/memory_album.html'
     
     

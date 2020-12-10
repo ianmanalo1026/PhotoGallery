@@ -5,7 +5,7 @@ from .views import (
     MemoryGalleryCreateView, 
     MemoryGalleryUpdateView, 
     MemoryGalleryDeleteView,
-    MemoryGalleryFilterListView,
+    MemoryGalleryFilterListView
 )
 
 app_name = 'memory_album'

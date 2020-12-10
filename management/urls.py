@@ -1,5 +1,7 @@
 from django.urls import path
 from management import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'management'
 
@@ -12,3 +14,6 @@ urlpatterns = [
     path('myprofile/', views.myprofile, name='myprofile'),
     path('myprofile/updateprofile/', views.updateprofile, name='updateprofile'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

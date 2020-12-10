@@ -11,7 +11,7 @@ class Profile(models.Model):
                                 )
     introduction = models.TextField(blank=True, null=True)
     phone_number = models.IntegerField(blank=True, null=True)
-    profile_photo = models.ImageField(upload_to=get_upload_path)
+    profile_photo = models.ImageField(upload_to=get_upload_path, default="default.jpg")
     
     def __str__(self):
         return str(self.user.first_name)
