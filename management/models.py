@@ -11,7 +11,15 @@ class Profile(models.Model):
                                 )
     introduction = models.TextField(blank=True, null=True)
     phone_number = models.IntegerField(blank=True, null=True)
+    mobile_number = models.IntegerField(blank=True, null=True)
+    work = models.CharField(max_length=500, blank=True, null=True)
+    address = models.CharField(max_length=500, blank=True, null=True)
+    website = models.CharField(max_length=500, blank=True, null=True)
+    linked_in = models.CharField(max_length=500, blank=True, null=True)
+    instagram = models.CharField(max_length=500, blank=True, null=True)
+    twitter = models.CharField(max_length=500, blank=True, null=True)
     profile_photo = models.ImageField(upload_to=get_upload_path, default="default.jpg")
+    
     
     def __str__(self):
         return str(self.user.first_name)

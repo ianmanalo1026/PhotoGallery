@@ -11,7 +11,13 @@ class UserCreateForm(UserCreationForm):
     
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        fields = ['username',
+                  'first_name',
+                  'last_name',
+                  'email',
+                  'password1',
+                  'password2',
+                  ]
         help_texts = {
             'username': None,
             'password1': None,
@@ -40,6 +46,12 @@ class ProfileEditForm(forms.ModelForm):
             'introduction',
             'phone_number',
             'profile_photo',
+            'work',
+            'address',
+            'website',
+            'linked_in',
+            'instagram',
+            'twitter',
         ]
         
 

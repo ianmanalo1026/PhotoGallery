@@ -22,7 +22,7 @@
       <div class="container">
 
         <nav class="navbar navbar-expand-md navbar-light bg-transparent">
-          <a class="navbar-brand logo" href="#">Memory Gallery</a>
+          <a class="navbar-brand logo" href="{% url 'management:home' %}">Photo Booth</a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -65,8 +65,9 @@
       </div>
   </div>
     </section id="body">
-    <section class="body-info">
-      <div class="container">
+
+      <section class="body-info">
+      <div class="container-fluid mt-2">
         {% block content%}
         {% endblock%}
       </div>

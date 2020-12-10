@@ -21,6 +21,11 @@ def signupuser(request):
             first_name = form.cleaned_data.get('first_name')
             last_name = form.cleaned_data.get('last_name')
             password = form.cleaned_data.get('password')
+            address = form.cleaned_data.get('address')
+            website = form.cleaned_data.get('website')
+            linked_in = form.cleaned_data.get('linked_in')
+            instagram = form.cleaned_data.get('instagram')
+            twitter = form.cleaned_data.get('twitter')
             message = messages.success(request, 
                                        f'User has been created')
             return redirect('management:signupuser')

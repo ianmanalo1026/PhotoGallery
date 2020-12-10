@@ -13,15 +13,14 @@
 <body>
     
     {% block content %}
-    <div class="container pt-5 pb-3 mt-5 border">
+    <div class="container pt-5 pb-3 mt-5 w-25 border shadow ">
         <form method="POST">
-            
+            <h2 class="text-center info-login pb-2 header-info">Photo Booth</h2>
             <h2>Join our Group!</h2>
             {% csrf_token %}
             <p>{{ form|bootstrap }}</p>
             <div class="col text-center p-0">
                     <button type="submit" class="btn btn-success">Sign up</button>
-                    <button type="submit" class="btn btn-danger">Cancel</button>  
             </div>
         </form>
         {%if messages%}
