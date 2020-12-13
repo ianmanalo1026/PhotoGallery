@@ -63,9 +63,8 @@ class TestView(TestCase):
         
         response = self.client.get(reverse('management:updateprofile'), follow=True)
 
-
         self.assertTrue(login.context['user'].is_authenticated)
         self.assertTrue(login.status_code, 200)
         self.assertEqual(response.status_code, 200)
         
-        
+         
