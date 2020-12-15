@@ -4,9 +4,8 @@ body {
   }
 
 #main {
-  background: url('photo/download.jpg');
+  background: url("/static/management/css/photo/background.jpg");
   background-size: cover;
-  object-fit: cover;
   height: 15vh;
 }
 
@@ -37,5 +36,20 @@ body {
 
 
 #profile {
-  background-color: rgb(187, 225, 236);
+  background-color: #fff;
+}
+
+
+
+.gallery-image {
+    margin-top: 10px;
+    width: 500px; /* You can set the dimensions to whatever you want */
+    height: 300px;
+    object-fit:fill;
+    padding: 3px 3px;
+}
+
+.gallery-list {
+  margin: 20px 20px;
+  padding: 20px 20px;
 }

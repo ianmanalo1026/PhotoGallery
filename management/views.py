@@ -3,10 +3,6 @@ from management.forms import UserCreateForm, ProfileEditForm, UserEditForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from django.views.generic import (CreateView,
-                                  DetailView)
-from django.contrib.auth.models import User
-from management.models import Profile
 from django.contrib import messages
 
 

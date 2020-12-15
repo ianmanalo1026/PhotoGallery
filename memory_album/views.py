@@ -15,7 +15,7 @@ class MemoryGalleryListView(ListView):
     template_name = 'memory_album/memory_album.html'
     
     
-class MemoryGalleryDetailView(DetailView):
+class MemoryGalleryDetailView(LoginRequiredMixin, DetailView):
     model = UserGallery
     template_name = 'memory_album/memory_album_detail.html'
     

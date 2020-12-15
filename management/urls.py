@@ -14,6 +14,6 @@ urlpatterns = [
     path('myprofile/', views.myprofile, name='myprofile'),
     path('myprofile/updateprofile/', views.updateprofile, name='updateprofile'),
 ]
-
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
