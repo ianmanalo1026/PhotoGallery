@@ -1,33 +1,47 @@
 {% extends 'management/base.html' %}
 {% load bootstrap %}
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'management/base.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'management/base.css' %}">
     <title>Document</title>
 </head>
 <body>
     {% block content %}
-    <div class="container">
-      <div class="row">
-        {% for instance in object_list %}
-        <div class="col-md-2 col-md-6 border shadow gallery-list">
-          <a href="{% url 'memory_album:detail' instance.pk %}"><img src="{{ instance.photo.url }}" class="img-thumbnail gallery-image"></a>
-          <h6>{{instance.posted_on}}</h6>
-          <h6>{{instance.title}}</h6>
-          <h6>{{instance.photographer.first_name}} {{instance.photographer.last_name}}</h6>
-          <p>{{ instance.description|truncatechars:50 }}</p>
-        </div>
-      {% endfor %}
-      </div>    
-    </div>
-    {% endblock %}
+      {% for instance in object_list %}
+        <div class="flex-container">
+          <div>
+            <a href="{% url 'memory_album:detail' instance.pk %}"><img src="{{ instance.photo.url }}" class="mx-auto d-block gallery-image"></a>
+            <h3 class="overview-header">{{instance.title}}</h3>
+            <p class="info-width mx-auto">{{ instance.description|truncatechars:50 }}</p>
+          </div>
+        </div> 
+        {% endfor %}
+      {% endblock %}  
 </body>
 </html>
+
+
+
+
+
+      <section id="overview">
+        <div class="container-fluid">
+          <div class="row overview-row">
+            
+              <div class="col-sm-4 text-center"></i>
+                
+                
+                
+            </div>
+            
+          </div>
+        </div> 
+      </section>
+
 
 
 

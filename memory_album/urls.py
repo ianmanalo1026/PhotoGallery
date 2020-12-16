@@ -7,7 +7,8 @@ from .views import (
     MemoryGalleryCreateView, 
     MemoryGalleryUpdateView, 
     MemoryGalleryDeleteView,
-    MemoryGalleryFilterListView
+    MemoryGalleryFilterListView,
+    MemoryGalleryFilterOtherListView,
 )
 
 app_name = 'memory_album'
@@ -15,6 +16,7 @@ app_name = 'memory_album'
 urlpatterns = [
     path('', MemoryGalleryListView.as_view(), name='memory_album'),
     path('my_gallery/', MemoryGalleryFilterListView.as_view(), name='my_gallery'),
+    path('photographer/', MemoryGalleryFilterOtherListView.as_view(), name='photographer'),
     path('create/', MemoryGalleryCreateView.as_view(), name='create'),
     path('<int:pk>/', MemoryGalleryDetailView.as_view(), name='detail'),
     path('<int:pk>/delete', MemoryGalleryDeleteView.as_view(), name='delete'),

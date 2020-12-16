@@ -7,6 +7,7 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic.edit import DeleteView, UpdateView
 from memory_album.forms import UserGalleryForm
+from management.models import Profile
 from memory_album.models import UserGallery
 
 
@@ -80,3 +81,4 @@ class MemoryGalleryFilterOtherListView(LoginRequiredMixin, ListView):
         queryset = super(MemoryGalleryFilterListView, self).get_queryset()
         queryset = queryset.filter(user=self.request.user)
         return queryset
+    
