@@ -7,41 +7,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'management/base.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'management/base.css' %}">
     <title>Document</title>
 </head>
 <body>
     {% block content %}
-      {% for instance in object_list %}
-        <div class="flex-container">
-          <div>
-            <a href="{% url 'memory_album:detail' instance.pk %}"><img src="{{ instance.photo.url }}" class="mx-auto d-block gallery-image"></a>
-            <h3 class="overview-header">{{instance.title}}</h3>
-            <p class="info-width mx-auto">{{ instance.description|truncatechars:50 }}</p>
+    
+        <div class="container-fluid">
+          {% for instance in object_list %}
+          <div class="row">
+            <div class="col col-md-4">
+            <a href="{% url 'memory_album:detail' instance.pk %}"><img src="{{ instance.photo.url }}" class="gallery-image"></a>
           </div>
-        </div> 
+        </div>
         {% endfor %}
+        </div>
+        
       {% endblock %}  
 </body>
 </html>
-
-
-
-
-
-      <section id="overview">
-        <div class="container-fluid">
-          <div class="row overview-row">
-            
-              <div class="col-sm-4 text-center"></i>
-                
-                
-                
-            </div>
-            
-          </div>
-        </div> 
-      </section>
-
-
-
-
